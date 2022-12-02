@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    font-family: 'Courier New';
+    text-align: center;
+    font-size: 20px;
+}
+
+html {
+    background-color: #fff;
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    width: 100%;
+}
