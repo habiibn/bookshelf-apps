@@ -11,8 +11,43 @@ html {
 }
 
 body {
-    display: flex;
-    flex-direction: column;
     padding: 0;
     width: 100%;
+}
+
+header {
+    width: 100%;
+    position: static;
+    height: 60px;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    top: 0;
+    width: 100%;
+    margin: 10px 10px 10px 10px;
+    background-color: #7FE9DE;
+}
+
+.nav-wrapper {   
+    display: block;
+    margin: 10px 10px 10px 10px;
+    height: 60px;
+}
+
+nav .logo {
+    float: left;
+    position: relative;
+    line-height: 60px;
+    border: 1px solid black;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.205);
+    margin: 10px 10px 10px 10px;
+}
+
+.img-logo {
+    width: 50px;
+    border: 2px solid #fff;
+    background-color: rgb(240, 199, 18);
 }
