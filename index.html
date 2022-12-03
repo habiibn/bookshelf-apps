@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Habib's Bookshelf Apps</title>
+    <title>LiteraCure</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,7 +18,7 @@
                         </div>
                     </div>
                     <div class="title">
-                        LITERACURE
+                        LiteraCure
                     </div>
                     <div class="three-strips">&#9776;</div>
                 </div>
@@ -56,31 +56,42 @@
                     <!-- Input phase -->
                     <div class="prep-stage">
                         <!-- Books register form -->
-                        <div class="register">
-                            <!-- Form berisi judul -->
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, necessitatibus.
-                            <div class="book-title">
-
-                            </div>
-                            <!-- Form berisi penulis -->
-                            <div class="author">
-
-                            </div>
-                            <!-- Form berisi genre -->
-                            <div class="genre">
-
-                            </div>
-                        </div>
+                        <section class="book-register">
+                            <h2>Masukkan Buku Baru</h2>
+                            <form id="inputBook">
+                                <div class="input">
+                                    <label for="inputBookTitle">Judul</label>
+                                    <input id="inputBookTitle" type="text" required="">
+                                </div>
+                                <div class="input">
+                                    <label for="inputBookAuthor">Penulis</label>
+                                    <input id="inputBookAuthor" type="text" required="">
+                                </div>
+                                <div class="input">
+                                    <label for="inputBookYear">Tahun</label>
+                                    <input id="inputBookYear" type="number" required="">
+                                </div>
+                                <div class="input">
+                                    <label for="inputBookGenre">Genre</label>
+                                    <input id="inputBookGenre" type="text" required="">
+                                </div>
+                                <div class="input_inline">
+                                    <label for="inputBookIsComplete">Selesai dibaca</label>
+                                    <input id="inputBookIsComplete" type="checkbox">
+                                </div>
+                                <button id="bookSubmit" type="submit">Masukkan Buku ke rak <span>Belum selesai dibaca</span></button>
+                            </form>
+                        </section>
                         <!-- Bookshelf display -->
-                        <div class="shelf">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, earum.
+                        <section id="shelf">
+                            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, earum.</h2>
                             <div class="shelf-base">
                                 <!-- Rak -->
                                 <table>
-
+                                    
                                 </table>
                             </div>
-                        </div>
+                        </section>
                     </div>
                     <!-- Organizing phase -->
                     <div class="activity">
