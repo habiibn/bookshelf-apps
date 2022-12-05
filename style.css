@@ -58,7 +58,8 @@ nav .logo {
 .img-logo {
     height: 50px;
     width: 50px;
-    border-radius: 50%;
+    background-color: #fff;
+    border-radius: 10%;
 }
 
 .title {
@@ -187,6 +188,14 @@ section {
     display: flex;
     flex-direction: row;
     margin: 5;
+}
+
+section#book-register {
+    width: 50%;
+}
+
+section#shelf {
+    width: 50%;
 }
 
 #inputBook {
@@ -326,5 +335,9 @@ footer {
     }
     .intro-img {
         width: 100%;
+    }
+
+    section#book-register, section#book-register {
+        width: auto; 
     }
 }

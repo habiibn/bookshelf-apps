@@ -9,23 +9,14 @@ const menuNav = document.querySelector("menu");
 
 function adjustNav() {
     if (window.pageYOffset >= sticky) {
-        navbar
-            .classList
-            .add("sticky");
-        // miniNav.addEventListener('click', function() {
-        //     this.classList.toggle('change');
-        //     menuNav.classList.toggle('change'); 
-        //     bgSidebar.classList.toggle('change');
-        // })
+        navbar.classList.add("sticky");
     } else {
-        navbar
-            .classList
-            .remove("sticky");
+        navbar.classList.remove("sticky");
     }
   }
 
 let e = [];
-function t(t) {
+function registry() {
     t.preventDefault();
     const n = document.querySelector("#input-Title"),
         o = document.querySelector("#input-Author"),
@@ -41,8 +32,8 @@ function t(t) {
             isComplete: i.checked
         };
     console.log(c),
-    e.push(c),
-    document.dispatchEvent(new Event("bookChanged"))
+    e.push(c)
+    // document.dispatchEvent(new Event("bookChanged"))
 }
 
 

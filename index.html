@@ -14,7 +14,7 @@
                 <div class="mini-nav">
                     <div class="logo">
                         <div class="icon">
-                            <img src="https://image.shutterstock.com/image-vector/book-stack-vector-black-icon-260nw-1259060506.jpg" alt="Bookshelf Apps" class="img-logo"/>
+                            <img src="https://cdn-icons-png.flaticon.com/512/29/29302.png" alt="Bookshelf Apps" class="img-logo"/>
                         </div>
                     </div>
                     <div class="title">
@@ -46,7 +46,7 @@
                         <h1>LiteraCure</h1>
                         <h2>LiteraCure</h2>
                         <ul class="intro-link">
-                            <li><a href="#content"> SART! </a></li>
+                            <li><a href="#content"> START! </a></li>
                             <li><a href="#instruction"> HOW TO PLAY? </a></li>
                         </ul>
                     </div>
@@ -63,7 +63,7 @@
                     <!-- Input phase -->
                     <div class="prep-stage">
                         <!-- Books register form -->
-                        <section class="book-register">
+                        <section id="book-register">
                             <h2>Masukkan Buku Baru</h2>
                             <form id="input-book">
                                 <div class="input">
@@ -86,14 +86,14 @@
                                     <label for="input-IsComplete">Selesai dibaca</label>
                                     <input id="input-IsComplete" type="checkbox">
                                 </div>
-                                <button id="bookSubmit" type="submit">Masukkan Buku ke rak <span>Belum selesai dibaca</span></button>
+                                <button id="bookSubmit" type="submit" onclick="t()"> Masukkan Buku ke rak <span>Belum selesai dibaca</span></button>
                             </form>
                         </section>
                         <!-- Bookshelf display -->
                         <section id="shelf">
                             <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat architecto voluptatum animi nam autem nulla quas placeat asperiores, culpa excepturi.</h2>
                             <div class="shelf-base">
-                                <!-- Rak -->
+                                
                                 <table>
                                     
                                 </table>
@@ -103,7 +103,7 @@
                     <!-- Organizing phase -->
                     <div class="activity">
                         <!-- List buku yang belum dibaca -->
-                        <div class="idle-book">
+                        <section id="idle-book">
                             <div class="idle-wrapper">
                                 <p>
                                     BUKU YANG BELUM DIBACA
@@ -114,9 +114,9 @@
                                     </li>
                                 </ul>
                             </div>
-                        </div>
+                        </section>
                         <!-- List buku yang sudah dibaca -->
-                        <div class="completed-book">
+                        <section id="completed-book">
                             <div class="idle-wrapper">
                                 <p>
                                     BUKU YANG SUDAH DIBACA
@@ -127,7 +127,7 @@
                                     </li>
                                 </ul>
                             </div>
-                        </div>
+                        </section>
                     </div>
        
                 </div>
