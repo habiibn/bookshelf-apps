@@ -21,14 +21,14 @@ function registry() {
     const n = document.querySelector("#input-Title"),
         o = document.querySelector("#input-Author"),
         d = document.querySelector("#input-Year"),
-        g = document.querySelector("#input-Genre"),
+        g = document.querySelector("#input-Category"),
         i = document.querySelector("#input-IsComplete"),
         c = {
             id: +new Date,
             title: n.value,
             author: o.value,
             year: d.value,
-            genre: g.value,
+            category: g.value,
             isComplete: i.checked
         };
     console.log(c),
@@ -53,7 +53,7 @@ function registry() {
         const n = document.querySelector("#input-Title"),
             o = document.querySelector("#input-Author"),
             d = document.querySelector("#input-Year"),
-            g = document.querySelector("#input-Genre"),
+            g = document.querySelector("#input-Category"),
             i = document.querySelector("#input-IsComplete"),
             c = {
                 id: +new Date,
