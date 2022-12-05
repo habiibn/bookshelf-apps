@@ -20,7 +20,10 @@
                     <div class="title">
                         LiteraCure
                     </div>
-                    <div class="three-strips">&#9776;</div>
+                    <div class="three-strips">
+                        <label for="strips">&#9776;</label>
+                        <input id="strips" type="checkbox">
+                    </div>
                 </div>
                 <div class="menu">
                     <!-- <button id="but-menu">&#9776;</button> -->
@@ -40,12 +43,16 @@
             <section id="intro">
                 <div class="intro-wrapper">
                     <div class="intro-content">
-                        <button id="start"> START! </button>
-                        <button id="how-to"> HOW TO PLAY? </button>
+                        <h1>LiteraCure</h1>
+                        <h2>LiteraCure</h2>
+                        <ul class="intro-link">
+                            <li><a href="#content"> SART! </a></li>
+                            <li><a href="#instruction"> HOW TO PLAY? </a></li>
+                        </ul>
                     </div>
                     <div class="intro-img">
                         <div class="img-wrapper">
-                            <img src="https://image.shutterstock.com/image-vector/book-stack-vector-black-icon-260nw-1259060506.jpg" alt="Bookshelf" class="img-shelf"/>
+                            <img src="./assets/library-aisle.webp" alt="Bookshelf" class="img-shelf"/>
                         </div>
                     </div>
                 </div>
@@ -58,33 +65,33 @@
                         <!-- Books register form -->
                         <section class="book-register">
                             <h2>Masukkan Buku Baru</h2>
-                            <form id="inputBook">
+                            <form id="input-book">
                                 <div class="input">
-                                    <label for="inputBookTitle">Judul</label>
-                                    <input id="inputBookTitle" type="text" required="">
+                                    <label for="input-Title">Judul</label>
+                                    <input id="input-Title" type="text" required="">
                                 </div>
                                 <div class="input">
-                                    <label for="inputBookAuthor">Penulis</label>
-                                    <input id="inputBookAuthor" type="text" required="">
+                                    <label for="input-Author">Penulis</label>
+                                    <input id="input-Author" type="text" required="">
                                 </div>
                                 <div class="input">
-                                    <label for="inputBookYear">Tahun</label>
-                                    <input id="inputBookYear" type="number" required="">
+                                    <label for="input-Year">Tahun</label>
+                                    <input id="input-Year" type="number" required="">
                                 </div>
                                 <div class="input">
-                                    <label for="inputBookGenre">Genre</label>
-                                    <input id="inputBookGenre" type="text" required="">
+                                    <label for="input-Genre">Genre</label>
+                                    <input id="input-Genre" type="text" required="">
                                 </div>
                                 <div class="input_inline">
-                                    <label for="inputBookIsComplete">Selesai dibaca</label>
-                                    <input id="inputBookIsComplete" type="checkbox">
+                                    <label for="input-IsComplete">Selesai dibaca</label>
+                                    <input id="input-IsComplete" type="checkbox">
                                 </div>
                                 <button id="bookSubmit" type="submit">Masukkan Buku ke rak <span>Belum selesai dibaca</span></button>
                             </form>
                         </section>
                         <!-- Bookshelf display -->
                         <section id="shelf">
-                            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, earum.</h2>
+                            <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat architecto voluptatum animi nam autem nulla quas placeat asperiores, culpa excepturi.</h2>
                             <div class="shelf-base">
                                 <!-- Rak -->
                                 <table>
@@ -138,7 +145,7 @@
                 <div class="about-wrapper">
                     <!-- Profile Photo -->
                     <div class="about-img">
-                        <img src="https://image.shutterstock.com/image-vector/book-stack-vector-black-icon-260nw-1259060506.jpg" alt="Profile" class="img-profile"/>
+                        <img src="./assets/Profile.png" alt="Profile" class="img-profile"/>
                     </div>
                     <!-- Profile Information -->
                     <div class="about-info">
@@ -150,8 +157,6 @@
                 </div>
             </section>
         </div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta nisi voluptates numquam aliquam incidunt porro consequatur. Dolores optio minus consequuntur.
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis non earum vitae dolores modi dignissimos consequuntur sunt laudantium ratione voluptates!
     </main>
     <footer>
         <div class="foot-wrapper">
