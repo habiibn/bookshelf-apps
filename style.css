@@ -198,6 +198,13 @@ section#shelf {
     width: 50%;
 }
 
+section#idle-book {
+    width: 50%;
+}
+
+section#completed-book {
+    width: 50%;
+}
 #inputBook {
     display: flex;
     flex-direction: column;
@@ -268,6 +275,40 @@ footer {
     margin: auto;
 }
 
+/* Popup container - can be anything you want */
+#popup {
+  visibility: hidden;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 20px;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 400px;
+  height: 80px;
+  padding: 20px;
+  justify-items: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#popup div {
+    display: inline-block;
+}
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+
 /* =========== Width Adjusting =========== */
 @media only screen and (max-width: 540px) {
     section, main {
@@ -333,6 +374,23 @@ footer {
     .intro-wrapper, .prep-stage, .activity {
         flex-direction: column;
     }
+
+    .intro-link {
+        justify-content: center;
+        color: #3425bb;
+        margin: auto;
+        padding: auto;
+        list-style-type:none;
+    }
+
+    .intro-link li {
+        text-decoration: none;
+    }
+
+    .intro-link li a {
+        text-decoration: none;
+    }
+
     .intro-img {
         width: 100%;
     }

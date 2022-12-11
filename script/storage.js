@@ -1,13 +1,5 @@
 const STORAGE_KEY = 'dataBook';
 
-// window.addEventListener("load", function(){
-//     if (localStorage.getItem(STORAGE_KEY) !== "") {    
-//         const booksData = getData();
-//         showData(booksData);
-//         console.log(booksData);
-//     }
-// })
-
 function getData() {
     return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
 }

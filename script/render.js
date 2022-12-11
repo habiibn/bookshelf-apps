@@ -1,7 +1,8 @@
-// custom event RENDER_EVENT
+// custom event render-event
 document.addEventListener('render-event', function(){
     completeBooks.innerHTML = '';
     inCompleteBooks.innerHTML = '';
+    searchResult.innerHTML = '';
 
     let checkIncompleteBook = 0;
     let checkCompleteBook = 0;
@@ -16,17 +17,17 @@ document.addEventListener('render-event', function(){
         }
     }
     if (checkCompleteBook === 0){
-        const noCompleteBook = showNoBook();
+        const noCompleteBook = emptyBook();
         completeBooks.append(noCompleteBook);
     }
     if (checkIncompleteBook === 0){
-        const noIncompleteBook = showNoBook();
+        const noIncompleteBook = emptyBook();
         inCompleteBooks.append(noIncompleteBook);
     }
 });
 
 // show no book 
-function showNoBook(){
+function emptyBook(){
     const noBook = document.createElement('div');
     noBook.classList.add('no-book');
 
@@ -40,17 +41,22 @@ function showNoBook(){
 // make shelf book
 function makeShelf(objectBook) {
     const titleBook = document.createElement('h3');
-    titleBook.innerText = objectBook.title;
+    titleBook.innerText = objectBook.title.toUpperCase();
+    titleBook.style.backgroundColor='#62B6B7';
+    titleBook.style.borderRadius='5px';
 
     const authorBook = document.createElement('p');
-    authorBook.innerText = "penulis : " + objectBook.author;
+    authorBook.innerText = "Penulis : " + objectBook.author;
 
     const yearBook = document.createElement('p');
-    yearBook.innerText = "tahun : " + objectBook.year;
+    yearBook.innerText = "Tahun : " + objectBook.year;
+
+    const categoryBook = document.createElement('p');
+    categoryBook.innerText = "Kategori : " + objectBook.category;
 
     const bookData = document.createElement('div');
     bookData.classList.add('book-data');
-    bookData.append(titleBook, authorBook, yearBook);
+    bookData.append(titleBook, authorBook, yearBook, categoryBook);
     
     const bookItem = document.createElement('div');
     bookItem.setAttribute('id', `book-${objectBook.id}`);
@@ -58,32 +64,35 @@ function makeShelf(objectBook) {
     bookItem.append(bookData);
 
     if(objectBook.isComplete){
-        const undoCompleteBtn = document.createElement('button');
-        undoCompleteBtn.classList.add('btn-complete')
-        undoCompleteBtn.innerText = "belum selesai dibaca";
+        const unCompleteBtn = document.createElement('button');
+        unCompleteBtn.classList.add('btn-complete')
+        unCompleteBtn.innerText = "Baca";
+        styleBtn(unCompleteBtn);
 
-        undoCompleteBtn.addEventListener('click', function(){
-            undoBookCompleted(objectBook.id);
+        unCompleteBtn.addEventListener('click', function(){
+            unBookCompleted(objectBook.id);
         });
 
         const removeBtn = document.createElement('button');
         removeBtn.classList.add('remove-book');
-        removeBtn.innerText = "hapus buku";
+        removeBtn.innerText = "Hapus";
+        styleBtn2(removeBtn);
 
         removeBtn.addEventListener('click', function(){
-            removeBook(objectBook.id);
+            confirmRemove(objectBook);
         });
 
         const action = document.createElement('div');
         action.classList.add('action');
 
-        action.append(undoCompleteBtn, removeBtn);
+        action.append(unCompleteBtn, removeBtn);
         bookItem.append(action);
     } 
     else {
         const completeBtn = document.createElement('button');
         completeBtn.classList.add('btn-incomplete')
-        completeBtn.innerText = "selesai dibaca";
+        completeBtn.innerText = "Selesai";
+        styleBtn(completeBtn);
 
         completeBtn.addEventListener('click', function(){
             BookCompleted(objectBook.id);
@@ -91,10 +100,11 @@ function makeShelf(objectBook) {
 
         const removeBtn2 = document.createElement('button');
         removeBtn2.classList.add('remove-book');
-        removeBtn2.innerText = "hapus buku";
+        removeBtn2.innerText = "Hapus";
+        styleBtn2(removeBtn2);
 
         removeBtn2.addEventListener('click', function(){
-            removeBook(objectBook.id);
+            confirmRemove(objectBook);
         });
 
         const action = document.createElement('div');
@@ -103,6 +113,44 @@ function makeShelf(objectBook) {
         action.append(completeBtn, removeBtn2);
         bookItem.append(action);
     }
+    styleBox(bookItem);
 
     return bookItem;
+}
+
+// Custom search result
+function displaySearch (objectBook) {
+    const titleSearch = document.createElement('h3');
+    titleSearch.innerText = objectBook.title.toUpperCase();
+    titleSearch.style.backgroundColor='#62B6B7';
+    titleSearch.style.borderRadius='5px';
+    const authorSearch = document.createElement('p');
+    authorSearch.innerText = "Penulis : " + objectBook.author;
+
+    const yearSearch = document.createElement('p');
+    yearSearch.innerText = "Tahun : " + objectBook.year;
+
+    const categorySearch = document.createElement('p');
+    categorySearch.innerText = "Kategori : " + objectBook.category;
+
+    const statusSearch = document.createElement('p');
+    if (objectBook.isComplete) {
+        statusSearch.innerText = "Status : Sudah selesai dibaca"; 
+        statusSearch.style.backgroundColor = 'green';
+    } else {
+        statusSearch.innerText = "Status : Belum selesai dibaca"; 
+        statusSearch.style.backgroundColor = 'grey';
+    }
+
+    const searchData = document.createElement('div');
+    searchData.classList.add('search-data');
+    searchData.append(titleSearch, authorSearch, yearSearch, categorySearch, statusSearch);
+    
+    const searchItem = document.createElement('div');
+    searchItem.setAttribute('id', `book-${objectBook.id}`);
+    searchItem.classList.add('search-item');
+    searchItem.append(searchData);
+    styleBox(searchItem);
+
+    return searchItem;
 }

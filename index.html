@@ -68,57 +68,39 @@
                             <form id="input-book">
                                 <div class="input">
                                     <label for="input-Title">Judul</label>
-                                    <input id="input-Title" type="text" required="">
+                                    <input id="input-Title" type="text" required="" placeholder="ex. Atomic Habit">
                                 </div>
                                 <div class="input">
                                     <label for="input-Author">Penulis</label>
-                                    <input id="input-Author" type="text" required="">
+                                    <input id="input-Author" type="text" required="" placeholder="ex. James Clear">
                                 </div>
                                 <div class="input">
                                     <label for="input-Year">Tahun</label>
-                                    <input id="input-Year" type="number" required="">
+                                    <input id="input-Year" type="number" required="" placeholder="ex. 2018">
                                 </div>
                                 <div class="input">
                                     <label for="input-Category">Kategory</label>
-                                    <input id="input-Category" type="text" required="">
-                                    <!-- <select name="bookCategory" id="input-category" class="bookCategory" required>
-                                        <option value="" selected>Pilih kategori buku...</option>
-                                        <option value="Pendidikan">Pendidikan</option>
-                                        <option value="Politik">Politik</option>
-                                        <option value="Petualangan">Petualangan</option>
-                                        <option value="Komedia">Komedi</option>
-                                        <option value="Anak-anak">Anak-anak</option>
-                                        <option value="Dewasa">Dewasa</option>
-                                        <option value="Horor">Horor</option>
-                                        <option value="Misteri">Misteri</option>
-                                        <option value="Romantis">Romantis</option>
-                                        <option value="Thriller">Thriller</option>
-                                        <option value="Sejarah">Sejarah</option>
-                                    </select> -->
+                                    <input id="input-Category" type="text" required="" placeholder="ex. Motivasi">
                                 </div>
                                 <div class="input_inline">
                                     <label for="input-IsComplete">Selesai dibaca</label>
                                     <input id="input-IsComplete" type="checkbox">
                                 </div>
-                                <button id="bookSubmit" type="submit" onclick="registry()"> Masukkan Buku ke rak <span>Belum selesai dibaca</span></button>
+                                <button id="bookSubmit" type="submit" onclick="registry()">Masukkan Buku</button>
                             </form>
                         </section>
                         <!-- Bookshelf display -->
                         <section id="shelf">
-                            <h2>cari buku</h2>
+                            <h2>Cari Buku</h2>
                             <form id="search-book">
                                 <div class="input">
                                     <label for="searchBook">judul</label>
-                                    <input type="text" id="searchBook" placeholder="masukkan judul buku yang ingin dicari...">
-                                    <button type="submit" id="btn-search-book">cari</button>
+                                    <input type="text" id="searchBook" placeholder="masukkan judul...">
+                                    <button type="submit" id="btn-search-book">Cari</button>
+                                    <button type="submit" id="btn-clear-search" onclick="myClear()">Clear</button>
                                 </div>
                             </form>
-                            <div class="shelf-base">
-                                
-                                <table>
-                                    
-                                </table>
-                            </div>
+                            <div id="shelf-base"></div>
                         </section>
                     </div>
                     <!-- Organizing phase -->
@@ -126,27 +108,15 @@
                         <!-- List buku yang belum dibaca -->
                         <section id="idle-book">
                             <div class="idle-wrapper">
-                                <p>
-                                    BUKU YANG BELUM DIBACA
-                                </p>
-                                <ul>
-                                    <li>
-                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero, nihil!
-                                    </li>
-                                </ul>
+                                <h2>Buku Yang Belum Dibaca</h2>
+                                <div id="idle-list"></div>
                             </div>
                         </section>
                         <!-- List buku yang sudah dibaca -->
                         <section id="completed-book">
                             <div class="idle-wrapper">
-                                <p>
-                                    BUKU YANG SUDAH DIBACA
-                                </p>
-                                <ul>
-                                    <li>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, odit!
-                                    </li>
-                                </ul>
+                                <h2>Buku Yang Sudah Dibaca</h2>
+                                <div id="completed-list"></div>
                             </div>
                         </section>
                     </div>
@@ -178,6 +148,7 @@
                 </div>
             </section>
         </div>
+        <div id="popup"></div>
     </main>
     <footer>
         <div class="foot-wrapper">
@@ -186,6 +157,18 @@
             </p>
         </div>
     </footer>
+    <script>
+        // When the user clicks on div, open the popup
+        function myFunction() {
+          var popup = document.getElementById("myPopup");
+          popup.classList.toggle("show");
+        }
+        function myClear() {
+            // const searchClear = document.getElementById('btn-clear-search');
+            const searchItem = document.getElementsByClassName('search-item');
+            searchData = [];
+        }
+    </script>
     <script src="./script/storage.js"></script>
     <script src="./script/display.js"></script>
     <script src="./script/main.js"></script>
