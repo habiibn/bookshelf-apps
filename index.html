@@ -80,8 +80,8 @@
                                 </div>
                                 <div class="input">
                                     <label for="input-Category">Kategory</label>
-                                    <!-- <input id="input-Genre" type="text" required=""> -->
-                                    <select name="bookCategory" id="input-category" class="bookCategory" required>
+                                    <input id="input-Category" type="text" required="">
+                                    <!-- <select name="bookCategory" id="input-category" class="bookCategory" required>
                                         <option value="" selected>Pilih kategori buku...</option>
                                         <option value="Pendidikan">Pendidikan</option>
                                         <option value="Politik">Politik</option>
@@ -94,18 +94,25 @@
                                         <option value="Romantis">Romantis</option>
                                         <option value="Thriller">Thriller</option>
                                         <option value="Sejarah">Sejarah</option>
-                                    </select>
+                                    </select> -->
                                 </div>
                                 <div class="input_inline">
                                     <label for="input-IsComplete">Selesai dibaca</label>
                                     <input id="input-IsComplete" type="checkbox">
                                 </div>
-                                <button id="bookSubmit" type="submit" onclick="t()"> Masukkan Buku ke rak <span>Belum selesai dibaca</span></button>
+                                <button id="bookSubmit" type="submit" onclick="registry()"> Masukkan Buku ke rak <span>Belum selesai dibaca</span></button>
                             </form>
                         </section>
                         <!-- Bookshelf display -->
                         <section id="shelf">
-                            <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat architecto voluptatum animi nam autem nulla quas placeat asperiores, culpa excepturi.</h2>
+                            <h2>cari buku</h2>
+                            <form id="search-book">
+                                <div class="input">
+                                    <label for="searchBook">judul</label>
+                                    <input type="text" id="searchBook" placeholder="masukkan judul buku yang ingin dicari...">
+                                    <button type="submit" id="btn-search-book">cari</button>
+                                </div>
+                            </form>
                             <div class="shelf-base">
                                 
                                 <table>
@@ -179,6 +186,9 @@
             </p>
         </div>
     </footer>
-    <script src="script.js"></script>
+    <script src="./script/storage.js"></script>
+    <script src="./script/display.js"></script>
+    <script src="./script/main.js"></script>
+    <script src="./script/render.js"></script>
 </body>
 </html>

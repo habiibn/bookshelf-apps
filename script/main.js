@@ -1,51 +1,81 @@
-window.onscroll = function () {
-    adjustNav()
-};
+// DOM loaded
+document.addEventListener('DOMContentLoaded', function(){
+    const submitForm = document.getElementById('input-book');
+    submitForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        // registry();
+    }); 
 
-var navbar = document.getElementById("navbar");
-var sticky = navbar.offsetTop;
-const miniNav = document.querySelector("strips");
-const menuNav = document.querySelector("menu");
+    const searchForm = document.getElementById('search-book');
+    searchForm.addEventListener('submit', function(event){
+        const titleBook = document.getElementById('searchBook').value;
+        event.preventDefault();
+        findTitleBook(titleBook);
+    });
+    
+    if (isStorageExist()) {
+        loadData();
+    };
+});
 
-function adjustNav() {
-    if (window.pageYOffset >= sticky) {
-        navbar.classList.add("sticky");
-    } else {
-        navbar.classList.remove("sticky");
-    }
-  }
-
-let e = [];
+// 
+let books = [];
 function registry() {
-    t.preventDefault();
-    const n = document.querySelector("#input-Title"),
-        o = document.querySelector("#input-Author"),
-        d = document.querySelector("#input-Year"),
-        g = document.querySelector("#input-Category"),
-        i = document.querySelector("#input-IsComplete"),
-        c = {
+    const bookTitle = document.querySelector("#input-Title"),
+        bookAuthor = document.querySelector("#input-Author"),
+        bookYear = document.querySelector("#input-Year"),
+        bookCategory = document.querySelector("#input-Category"),
+        isRead = document.querySelector("#input-IsComplete"),
+        bookDetails = {
             id: +new Date,
-            title: n.value,
-            author: o.value,
-            year: d.value,
-            category: g.value,
-            isComplete: i.checked
+            title: bookTitle.value,
+            author: bookAuthor.value,
+            year: bookYear.value,
+            category: bookCategory.value,
+            isComplete: isRead.checked
         };
-    console.log(c),
-    e.push(c)
+    books.push(bookDetails);
+    save();
     // document.dispatchEvent(new Event("bookChanged"))
 }
 
+// function find book
+function findBook (bookID){
+    for (const bookItem of books){
+        if(bookItem.id == bookID){
+            return bookItem;
+        }
+    }
+    return null;
+}
 
+// find book 
+const inCompleteBooks = document.getElementById('idle-book');
+const completeBooks = document.getElementById('completed-book');
 
+function findTitleBook(title){
+    completeBooks.innerHTML = '';
+    inCompleteBooks.innerHTML = ''; 
 
+    const lowerTitle = title.toLowerCase();
+    for (const book of books){
+        if ( book.title == lowerTitle){
+            const bookElement = makeShelf(book);
+            if(book.isComplete){
+                completeBooks.append(bookElement);
+            } else {
+                inCompleteBooks.append(bookElement);
+            }
+        } else {
+            alert('Buku tidak ditemukan');
+            console.log('Buku tidak ditemukan');
+        }
+    }
 
+    document.getElementById('search-book').value = '';
+}
 
-
-// function adjustMenu() {
-//     if }
-
-  /*
+/*
 (() => {
     let e = [];
     function t(t) {
