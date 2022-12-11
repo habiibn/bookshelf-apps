@@ -44,10 +44,16 @@
                 <div class="intro-wrapper">
                     <div class="intro-content">
                         <h1>LiteraCure</h1>
-                        <h2>LiteraCure</h2>
+                        <p> ------------</p>
+                        <h2>Cara mudah mengarsipkan buku kamu </h2>
+                        <p> ------------</p>
+                        <p> ------------</p>
+                        <h3>Jangan sampai progres membacamu terkendala karena tidak tercatat dengan baik.</h3>
                         <ul class="intro-link">
+                            <!-- <button> START! </button>
+                            <button> HOW TO PLAY? </button> -->
                             <li><a href="#content"> START! </a></li>
-                            <li><a href="#instruction"> HOW TO PLAY? </a></li>
+                            <li><a href="#instruction"> HOW TO USE? </a></li>
                         </ul>
                     </div>
                     <div class="intro-img">
@@ -61,6 +67,7 @@
             <section id="content">
                 <div class="content-wrapper">
                     <!-- Input phase -->
+                    <h2>Bookshelf Apps : Organize Your Book Easily</h2>
                     <div class="prep-stage">
                         <!-- Books register form -->
                         <section id="book-register">
@@ -94,10 +101,9 @@
                             <h2>Cari Buku</h2>
                             <form id="search-book">
                                 <div class="input">
-                                    <label for="searchBook">judul</label>
+                                    <label for="searchBook" style="text-align: center;">Judul</label>
                                     <input type="text" id="searchBook" placeholder="masukkan judul...">
                                     <button type="submit" id="btn-search-book">Cari</button>
-                                    <button type="submit" id="btn-clear-search" onclick="myClear()">Clear</button>
                                 </div>
                             </form>
                             <div id="shelf-base"></div>
@@ -127,7 +133,14 @@
             <section id="instruction">
                 <div class="instruction-wrapper">
                     <div class="how-to-play">
-                        <p>First, </p>
+                        <h1>Bagaimana cara penggunaanya?</h1>
+                        <h2>Isi formulir masukan buku baru dan pastikan semua terisi dengan benar.</h2>
+                        <h2>Jangan lupa centang <b>Selesai dibaca</b> apabila buku yang kamu masukkan sudah selesai kamu baca, lalu tekan <b>Masukkan Buku</b></h2>
+                        <h2>Buku yang telah kamu masukkan akan berada di rak buku yang belum dibaca atau yang sudah dibaca.</h2>
+                        <h2>Untuk mencari buku yang kamu inginkan, isi kolom pencarian dan tekan tombol Cari.</h2>
+                        <h2>Apabila kamu ingin menandai buku sudah dibaca maka tekan Selesai.</h2>
+                        <h2>Sedangkan apabila kamu ingin menandai buku belum dibaca tekan Baca.</h2>
+                        <h2>Kamu juga bisa menghapus buku kamu dengan menekan tombol Hapus dan mengkonfirmasi.</h2>
                     </div>
                 </div>
             </section>
@@ -140,10 +153,9 @@
                     </div>
                     <!-- Profile Information -->
                     <div class="about-info">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero, perspiciatis!
-                        <table>
-
-                        </table>
+                        <h3>BIODATA</h3>
+                        <h4><b>Nama   : Habib Nurkholis</b></h4>
+                        <h4><b>ID    :  M004X0007</b></h4>
                     </div>
                 </div>
             </section>
@@ -157,18 +169,6 @@
             </p>
         </div>
     </footer>
-    <script>
-        // When the user clicks on div, open the popup
-        function myFunction() {
-          var popup = document.getElementById("myPopup");
-          popup.classList.toggle("show");
-        }
-        function myClear() {
-            // const searchClear = document.getElementById('btn-clear-search');
-            const searchItem = document.getElementsByClassName('search-item');
-            searchData = [];
-        }
-    </script>
     <script src="./script/storage.js"></script>
     <script src="./script/display.js"></script>
     <script src="./script/main.js"></script>

@@ -4,15 +4,16 @@ document.addEventListener('DOMContentLoaded', function(){
     searchForm.addEventListener('submit', function(event){
         const titleBook = document.getElementById('searchBook').value;
         event.preventDefault();
-        findTitleBook(titleBook);
+        searchTitleBook(titleBook);
+        console.log(titleBook);
     });
-    
+
     if (isStorageExist()) {
         loadData();
     };
 });
 
-// 
+// Input book
 let books = [];
 function registry() {
     const bookTitle = document.querySelector("#input-Title"),
@@ -29,11 +30,13 @@ function registry() {
             isComplete: isRead.checked
         };
     books.push(bookDetails);
+    document.dispatchEvent(new Event('render-event'));
+    clearText();
     save();
 }
 
 // function find book
-function findBook (bookID){
+function searchBook (bookID){
     for (const bookItem of books){
         if(bookItem.id == bookID){
             return bookItem;
@@ -42,27 +45,28 @@ function findBook (bookID){
     return null;
 }
 
-// find book 
 const inCompleteBooks = document.getElementById('idle-list');
 const completeBooks = document.getElementById('completed-list');
 const searchResult = document.getElementById('shelf-base');
 const div = document.createElement('div');
 
-function findTitleBook(title){
+// show book 
+function searchTitleBook(title){
     completeBooks.innerHTML = '';
     inCompleteBooks.innerHTML = '';
     searchResult.innerHTML = '';
 
     const lowerTitle = title.toLowerCase();
     for (const book of books){
-        if ( book.title == lowerTitle){
-            const bookElement = makeShelf(book);
+        if ( book.title.toLowerCase() == lowerTitle){
+            const bookElement = createShelf(book);
             const searchElements = displaySearch(book);
-            console.log(searchElements);
+            console.log(bookElement);
             if(book.isComplete){
                 completeBooks.append(bookElement);
                 searchResult.append(searchElements);
             } else {
+                
                 inCompleteBooks.append(bookElement);
                 searchResult.append(searchElements);
             }
@@ -70,9 +74,9 @@ function findTitleBook(title){
     }
 }
 
-// function to complete book
+// function swap to complete book
 function BookCompleted(bookID){
-    const bookTarget = findBook(bookID);
+    const bookTarget = searchBook(bookID);
 
     if(bookTarget == null ) {
         return ;
@@ -83,9 +87,9 @@ function BookCompleted(bookID){
     save();
 }
 
-// function to incomplete book
+// function swap to incomplete book
 function unBookCompleted(bookID){
-    const bookTarget = findBook(bookID);
+    const bookTarget = searchBook(bookID);
 
     if(bookTarget == null){
         return ;
@@ -98,8 +102,6 @@ function unBookCompleted(bookID){
 
 // function remove Book
 function removeBook(id){
-    const foundBooks = findBook(id);
-    console.log("Id found: " + foundBooks.id)
     books.splice(books.findIndex(function (foundBooks) {
         return foundBooks.id === id;
     }),1);

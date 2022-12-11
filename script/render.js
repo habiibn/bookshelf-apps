@@ -7,7 +7,7 @@ document.addEventListener('render-event', function(){
     let checkIncompleteBook = 0;
     let checkCompleteBook = 0;
     for (const book of books){
-        const bookElement = makeShelf(book);
+        const bookElement = createShelf(book);
         if(book.isComplete){
             completeBooks.append(bookElement);
             checkCompleteBook++;
@@ -26,7 +26,7 @@ document.addEventListener('render-event', function(){
     }
 });
 
-// show no book 
+// show empty book 
 function emptyBook(){
     const noBook = document.createElement('div');
     noBook.classList.add('no-book');
@@ -38,11 +38,12 @@ function emptyBook(){
     return noBook;
 }
 
-// make shelf book
-function makeShelf(objectBook) {
+// create object book
+function createShelf(objectBook) {
     const titleBook = document.createElement('h3');
     titleBook.innerText = objectBook.title.toUpperCase();
-    titleBook.style.backgroundColor='#62B6B7';
+    titleBook.style.backgroundColor='#675bd1';
+    titleBook.style.padding='5px';
     titleBook.style.borderRadius='5px';
 
     const authorBook = document.createElement('p');
@@ -122,8 +123,10 @@ function makeShelf(objectBook) {
 function displaySearch (objectBook) {
     const titleSearch = document.createElement('h3');
     titleSearch.innerText = objectBook.title.toUpperCase();
-    titleSearch.style.backgroundColor='#62B6B7';
+    titleSearch.style.backgroundColor='#675bd1';
+    titleSearch.style.padding='5px';
     titleSearch.style.borderRadius='5px';
+
     const authorSearch = document.createElement('p');
     authorSearch.innerText = "Penulis : " + objectBook.author;
 
@@ -153,4 +156,17 @@ function displaySearch (objectBook) {
     styleBox(searchItem);
 
     return searchItem;
+}
+
+function clearText(){
+    document.querySelector("#input-Title").value = '';
+    document.querySelector("#input-Author").value = '';
+    document.querySelector("#input-Year").value = '';
+    document.querySelector("#input-Category").value = '';
+    document.querySelector("#input-IsComplete").value = '';
+    document.getElementById('searchBook').value = '';
+    let readCheck = document.querySelector("#input-IsComplete");
+    for (const reaD of readCheck ){
+        readCheck.checked = false;
+    }
 }

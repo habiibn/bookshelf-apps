@@ -29,5 +29,5 @@ function styleBox (Box) {
 }
 
 function styleTitle (Title) {
-    Title.style.cssText += 'background-color=#472183; border-radius=10px';
+    Title.style.cssText += 'background-color=#3425bb; border-radius=10px';
 }
