@@ -1,2 +1,2 @@
-# bookshelf-apps
-This repo is used to 
+# LiteraCure
+Organize Your Book Easily
