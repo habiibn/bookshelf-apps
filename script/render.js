@@ -32,16 +32,17 @@ function emptyBook(){
     noBook.classList.add('no-book');
 
     const text = document.createElement('h3');
-    text.innerText = 'belum ada buku';
+    text.innerText = 'Tidak ada buku';
 
     noBook.append(text);
+    styleBox(noBook);
     return noBook;
 }
 
 // create object book
 function createShelf(objectBook) {
     const titleBook = document.createElement('h3');
-    titleBook.innerText = objectBook.title.toUpperCase();
+    titleBook.innerText = objectBook.title;
     titleBook.style.backgroundColor='#675bd1';
     titleBook.style.padding='5px';
     titleBook.style.borderRadius='5px';
@@ -122,7 +123,7 @@ function createShelf(objectBook) {
 // Custom search result
 function displaySearch (objectBook) {
     const titleSearch = document.createElement('h3');
-    titleSearch.innerText = objectBook.title.toUpperCase();
+    titleSearch.innerText = objectBook.title;
     titleSearch.style.backgroundColor='#675bd1';
     titleSearch.style.padding='5px';
     titleSearch.style.borderRadius='5px';
@@ -166,7 +167,5 @@ function clearText(){
     document.querySelector("#input-IsComplete").value = '';
     document.getElementById('searchBook').value = '';
     let readCheck = document.querySelector("#input-IsComplete");
-    for (const reaD of readCheck ){
-        readCheck.checked = false;
-    }
+    readCheck.checked = false;
 }

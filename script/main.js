@@ -5,9 +5,7 @@ document.addEventListener('DOMContentLoaded', function(){
         const titleBook = document.getElementById('searchBook').value;
         event.preventDefault();
         searchTitleBook(titleBook);
-        console.log(titleBook);
     });
-
     if (isStorageExist()) {
         loadData();
     };
@@ -29,7 +27,11 @@ function registry() {
             category: bookCategory.value,
             isComplete: isRead.checked
         };
-    books.push(bookDetails);
+    if (bookDetails.title !== "" && bookDetails.author !== "" && bookDetails.year !== "" && bookDetails.year !== "" && bookDetails.category !== ""){
+        books.push(bookDetails);
+    } else {
+        alert("Tolong lengkapi formulir!");
+    }
     document.dispatchEvent(new Event('render-event'));
     clearText();
     save();
@@ -56,12 +58,10 @@ function searchTitleBook(title){
     inCompleteBooks.innerHTML = '';
     searchResult.innerHTML = '';
 
-    const lowerTitle = title.toLowerCase();
     for (const book of books){
-        if ( book.title.toLowerCase() == lowerTitle){
+        if ( book.title == title){
             const bookElement = createShelf(book);
             const searchElements = displaySearch(book);
-            console.log(bookElement);
             if(book.isComplete){
                 completeBooks.append(bookElement);
                 searchResult.append(searchElements);
@@ -70,6 +70,12 @@ function searchTitleBook(title){
                 inCompleteBooks.append(bookElement);
                 searchResult.append(searchElements);
             }
+        } 
+        else {
+            const noCompleteBook = emptyBook();
+            completeBooks.append(noCompleteBook);
+            const noIncompleteBook = emptyBook();
+            inCompleteBooks.append(noIncompleteBook);
         }
     }
 }
